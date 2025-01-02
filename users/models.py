@@ -7,10 +7,10 @@ from django.db import models
 class Role(models.Model):
     name = models.CharField(max_length=100)
     seniority = models.CharField(max_length=50, choices=[
-        'Junior',
-        'Mid-level',
-        'Senior',
-        'Lead'
+        ('Junior', 'Junior'),
+        ('Mid-level', 'Mid-level'),
+        ('Senior', 'Senior'),
+        ('Lead', 'Lead')
     ])
 
     def __str__(self):

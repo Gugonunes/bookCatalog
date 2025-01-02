@@ -1,0 +1,53 @@
+/* Paleta de Cores */
+:root {
+    --background: #1E1E2E;
+    --text-primary: #E0E0E0;
+    --text-secondary: #A0A0B0;
+    --highlight: #007ACC;
+    --accent: #FFA500;
+    --error: #FF5555;
+    --success: #50FA7B;
+}
+
+/* Aplicação no Layout */
+body {
+    background-color: var(--background);
+    color: var(--text-primary);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    color: var(--highlight);
+}
+
+a {
+    color: var(--highlight);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--accent);
+}
+
+button {
+    background-color: var(--highlight);
+    color: var(--text-primary);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--accent);
+}
+
+.error {
+    color: var(--error);
+}
+
+.success {
+    color: var(--success);
+}

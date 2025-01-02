@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Todos os livros
+{% endblock title %}
+
+{% block content %}
+{% for index, livro in livros %}
+    <h2> {{ index }} - {{ livro }}</h2>
+{% endfor %}
+{% endblock content %}
