@@ -4,7 +4,7 @@ from django.http import HttpResponse
 # Create your views here.
 
 
-def home(request):
+def books_home(request):
     content = {
         'livros': [
             (1, 'O programador pragmático'),
