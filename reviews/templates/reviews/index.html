@@ -1,11 +1,26 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Review base
+{{ book.title }}
 {% endblock title %}
 
-{% block content%}
-<p>
-    Esse livro é muito bom!
-</p>
+{% block content %}
+<div class="reviews-container">
+    <h2>Reviews for this book:</h2>
+    {% for review in reviews %}
+    <div class="review-card">
+        <div class="review-header">
+            <img src="{{ review.user.profile_picture.url }}" alt="{{ review.user.username }}" class="user-image">
+            <div class="user-details">
+                <p class="username">{{ review.user.username }}</p>
+                <p class="created-at">{{ review.created_at }}</p>
+            </div>
+        </div>
+        <div class="review-body">
+            <p class="rating">Rating: {{ review.rating }} / 5</p>
+            <p class="comment">{{ review.comment }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock content %}
