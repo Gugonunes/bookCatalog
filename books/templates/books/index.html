@@ -5,7 +5,30 @@ Todos os livros
 {% endblock title %}
 
 {% block content %}
-{% for index, livro in livros %}
-    <h2> {{ index }} - {{ livro }}</h2>
-{% endfor %}
+<div class="container">
+    {% for book in books %}
+    <div class="book-card">
+        <h2>
+            <a href="/reviews/{{ book.index }}" class="book-link">{{ book.index }} - {{ book.title }}</a>
+        </h2>
+
+        <div class="book-content">
+            <img src="{{ book.img_url }}" alt="{{ book.title }}" class="book-image">
+            <div class="book-info">
+                <p class="author">Author: {{ book.author }}</p>
+                <p class="publication-date">Publication Date: {{ book.publication_date }}</p>
+                <p class="categories">Categories: {{ book.categories }}</p>
+                <button class="synopsis-toggle" onclick="toggleSynopsis({{ book.index }})">Show Synopsis</button>
+                <p id="synopsis-{{ book.index }}" class="synopsis hidden">{{ book.synopsis }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<script>
+    function toggleSynopsis(bookId) {
+        const synopsis = document.getElementById(`synopsis-${bookId}`);
+        synopsis.classList.toggle("hidden");
+    }
+</script>
 {% endblock content %}
