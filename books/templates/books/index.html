@@ -9,17 +9,17 @@ Todos os livros
     {% for book in books %}
     <div class="book-card">
         <h2>
-            <a href="/reviews/{{ book.index }}" class="book-link">{{ book.index }} - {{ book.title }}</a>
+            <a href="/reviews/{{ book.id }}" class="book-link">{{ book.id }} - {{ book.title }}</a>
         </h2>
 
         <div class="book-content">
-            <img src="{{ book.img_url }}" alt="{{ book.title }}" class="book-image">
+            <img src="{{ book.cover_image.url }}" alt="{{ book.title }}" class="book-image">
             <div class="book-info">
                 <p class="author">Author: {{ book.author }}</p>
                 <p class="publication-date">Publication Date: {{ book.publication_date }}</p>
                 <p class="categories">Categories: {{ book.categories }}</p>
-                <button class="synopsis-toggle" onclick="toggleSynopsis({{ book.index }})">Show Synopsis</button>
-                <p id="synopsis-{{ book.index }}" class="synopsis hidden">{{ book.synopsis }}</p>
+                <button class="synopsis-toggle" onclick="toggleSynopsis({{ book.id }})">Show Synopsis</button>
+                <p id="synopsis-{{ book.id }}" class="synopsis hidden">{{ book.synopsis }}</p>
             </div>
         </div>
     </div>
