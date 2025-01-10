@@ -26,7 +26,7 @@ def home(request):
 
 
 urlpatterns = [
-    path('', home, name='home'),
+    path('', include('home.urls')),
     path('reviews/', include('reviews.urls')),
     path('user/', include('users.urls')),
     path('wishlist/', include('wishlist.urls')),
