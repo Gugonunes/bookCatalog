@@ -9,16 +9,20 @@
 <body>
     <nav>
         <ul>
-            <li><a href="/">Página inicial </a></li>
-            <li><a href="/books">Catálogo completo</a></li>
-            <li><a href="/wishlist">Lista de desejos</a></li>
-            <li><a href="/user">Perfil</a></li>
-            <li>Sair</li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/books">Complete Catalog</a></li>
+            <li><a href="/wishlist">Wishlist</a></li>
+            <li><a href="/user">Profile</a></li>
+            <li>Logout</li>
         </ul>
     </nav>
     <div class="content">
         <h1>{% block title %} Titulo base {% endblock title %}</h1>
-        <div>{% block content %} {% endblock content %}</div>
+        <div>
+            {% block content %}
+            <p>Content</p>
+            {% endblock content %}
+        </div>
     </div>
 </body>
 </html>
