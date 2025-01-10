@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Welcome to DevBooks
+{% endblock title %}
+
+{% block content %}
+<p>Find the perfect book for your next read, based on reviews from developers like you.</p>
+<section class="top-rated">
+    <h2>Top-Rated Book</h2>
+    <div class="book-card" style="max-width: 500px">
+        <div class="book-content">
+            <img src="{{ top_book.cover_image.url }}" alt="{{ top_book.title }}" class="book-image">
+            <div class="book-info">
+                <h3>{{ top_book.title }}</h3>
+                <p class="author">Author: {{ top_book.author }}</p>
+                <p class="publication-date">Publication Date: {{ top_book.publication_date }}</p>
+                <p class="categories">Categories:
+                    {% for category in top_book.categories.all %}
+                        {{ category.name }}{% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </p>
+                <button class="synopsis-toggle" onclick="toggleSynopsis({{ top_book.id }})">Show Synopsis</button>
+                <p id="synopsis-{{ top_book.id }}" class="synopsis hidden">{{ top_book.synopsis }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="recent-reviews">
+    <h2>Recent Reviews</h2>
+    <div class="reviews-list">
+        {% for review in recent_reviews %}
+        <div class="review-card" style="max-width: 500px">
+            <h3>{{ review.book.title }}</h3>
+            <p><strong>{{ review.user.username }}</strong> - {{ review.user.role.name }} ( {{review.user.role.seniority}} )</p>
+            <p>Rated: {{ review.rating }}/5 ⭐</p>
+            <p><em>"{{ review.comment|truncatewords:20 }}"</em></p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="categories-section">
+    <h2>Explore Categories</h2>
+    <p>Under construction</p>
+</section>
+
+<section class="search-books">
+    <h2>Find your next read!</h2>
+    <a href="/books">Complete Catalog</a>
+</section>
+<script>
+    function toggleSynopsis(bookId) {
+        const synopsis = document.getElementById(`synopsis-${bookId}`);
+        synopsis.classList.toggle("hidden");
+    }
+</script>
+{% endblock content %}
