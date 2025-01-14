@@ -1,0 +1,257 @@
+/* Paleta de Cores */
+:root {
+    --background: #1E1E2E;
+    --background-transparent: rgba(52, 52, 74, 0.9);
+    --text-primary: #E0E0E0;
+    --text-secondary: #A0A0B0;
+    --highlight: #007ACC;
+    --accent: #FFA500;
+    --error: #FF5555;
+    --success: #50FA7B;
+}
+
+/* Aplicação no Layout */
+body {
+    background-color: var(--background);
+    color: var(--text-primary);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    color: var(--highlight);
+}
+
+a {
+    color: var(--highlight);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--accent);
+}
+
+button {
+    background-color: var(--highlight);
+    color: var(--text-primary);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--accent);
+}
+
+.error {
+    color: var(--error);
+}
+
+.success {
+    color: var(--success);
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+/* CSS Books */
+
+.book-card {
+    background-color: #2E2E40;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
+}
+
+.book-card:hover {
+    transform: scale(1.02);
+}
+
+.book-link {
+    text-decoration: none;
+    color: var(--highlight);
+    transition: color 0.3s ease;
+}
+
+.book-link:hover {
+    color: var(--accent);
+}
+
+.book-content {
+    display: flex;
+    gap: 10px;
+}
+
+.book-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.book-info {
+    flex: 1;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: var(--highlight);
+    margin: 0 0 10px;
+}
+
+.author, .publication-date, .categories {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 5px 0;
+}
+
+.synopsis-toggle {
+    background-color: var(--accent);
+    color: var(--text-primary);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.synopsis-toggle:hover {
+    background-color: var(--highlight);
+}
+
+.synopsis {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    margin-top: 10px;
+    display: none;
+}
+
+.synopsis.hidden {
+    display: none;
+}
+
+.synopsis:not(.hidden) {
+    display: block;
+}
+
+/* CSS Reviews */
+
+.reviews-container {
+    max-width: 800px;
+    padding: 20px;
+}
+
+.review-card {
+    background-color: var(--background-transparent);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--highlight);
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.username {
+    font-weight: bold;
+    color: var(--accent);
+    margin:0;
+}
+
+.created-at {
+    font-size: 0.9em;
+    color: var(--text-primary);
+}
+
+.review-body {
+    padding-left: 60px; /* Align content with username */
+}
+
+.rating {
+    font-size: 1em;
+    color: var(--success);
+}
+
+.comment {
+    font-size: 0.95em;
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+/* HOME */
+.home-content {
+    color: var(--text-primary);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section {
+    margin-top: 40px;
+}
+
+.category-link {
+    background: var(--highlight);
+    color: var(--text-primary);
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 5px;
+    display: inline-block;
+}
+
+.search-books form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.search-books input {
+    padding: 10px;
+    border: 2px solid var(--highlight);
+    border-radius: 4px;
+    background: var(--background);
+    color: var(--text-primary);
+    width: 60%;
+}
+
+.search-books button {
+    padding: 10px 15px;
+    background: var(--highlight);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-books button:hover {
+    background: var(--accent);
+}
