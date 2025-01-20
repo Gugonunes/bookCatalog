@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+{% block content %}
+    <div class="book-card">
+        <div class="book-content">
+            <img src="{{ image.url }}" alt="{{ title }}" class="book-image">
+            <div class="book-info">
+                <p class="author">Author: {{ author }}</p>
+                <p class="publication-date">Publication Date: {{ publication_date }}</p>
+                <p class="categories">Categories:
+                    {% for category in categories.all %}
+                        {{ category.name }}{% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </p>
+                <p class="synopsis">{{ synopsis }}</p>
+            </div>
+        </div>
+    </div>
+    <div style="margin: 10px">
+        <h2>Reviews</h2>
+        {% include 'reviews/index.html' with reviews=reviews %}
+    </div>
+
+{% endblock content %}
