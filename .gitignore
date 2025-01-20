@@ -7,3 +7,5 @@ media/
 static/
 .env
 .DS_Store
+Procfile
+runtime.txt
