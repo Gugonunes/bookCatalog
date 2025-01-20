@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Bem vindo gustavo
+    <h1>Welcome {{ user.username }}</h1>
 {% endblock title %}
 
 {% block content%}
-<p>
-    Este é seu perfil
-</p>
+    <img src="{{ user.profile_picture.url }}" alt="Foto de perfil" width="150" height="150">
+    <p><strong>Nome:</strong> {{ user.get_full_name }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Bio:</strong> {{ user.bio }}</p>
+    <p><strong>Role:</strong> {{ user.role }}</p>
+    <p><strong>LinkedIn:</strong> <a href="{{ user.linkedin_url }}">{{ user.linkedin_url }}</a></p>
+    <p><strong>GitHub:</strong> <a href="{{ user.github_url }}">{{ user.github_url }}</a></p>
 {% endblock content %}

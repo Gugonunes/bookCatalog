@@ -11,9 +11,13 @@
         <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/books">Complete Catalog</a></li>
-            <li><a href="/wishlist">Wishlist</a></li>
             <li><a href="/user">Profile</a></li>
-            <li>Logout</li>
+            <li>
+                <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit">Logout</button>
+                </form>
+            </li>
         </ul>
     </nav>
     <div class="content">
@@ -45,7 +49,7 @@ nav {
 
 nav ul {
     display: grid;
-    grid-template-columns: auto auto auto 1fr auto auto;
+    grid-template-columns: auto auto 1fr auto auto;
     align-items: center;
     list-style: none;
     margin: 0;
@@ -73,13 +77,12 @@ nav a {
 
 /* Estilos Específicos */
 nav li:nth-child(1),
-nav li:nth-child(2),
-nav li:nth-child(3) {
+nav li:nth-child(2){
     justify-self: start; /* Itens da esquerda */
 }
 
-nav li:nth-child(4),
-nav li:nth-child(5) {
+nav li:nth-child(3),
+nav li:nth-child(4) {
     justify-self: end; /* Itens da direita */
 }
 

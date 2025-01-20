@@ -82,7 +82,9 @@ WSGI_APPLICATION = 'bookCatalog.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL', 'postgres://USER:PASSWORD@HOST:PORT/DB_NAME')
+        default='sqlite:///db.sqlite3',
+        conn_max_age=600,
+        ssl_require=False
     )
 }
 
@@ -132,6 +134,10 @@ MEDIA_ROOT = BASE_DIR / 'media'
 django_on_heroku.settings(locals())
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
+
+LOGIN_REDIRECT_URL = '/user/'  # Redireciona para a página de perfil após o login
+LOGIN_URL = '/login/'  # Página de login padrão
+LOGOUT_REDIRECT_URL = '/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

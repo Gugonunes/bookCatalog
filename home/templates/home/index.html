@@ -12,7 +12,7 @@ Welcome to DevBooks
         <div class="book-content">
             <img src="{{ top_book.cover_image.url }}" alt="{{ top_book.title }}" class="book-image">
             <div class="book-info">
-                <h3>{{ top_book.title }}</h3>
+                <h3><a href="/books/{{ top_book.id }}">{{ top_book.title }}</a></h3>
                 <p class="author">Author: {{ top_book.author }}</p>
                 <p class="publication-date">Publication Date: {{ top_book.publication_date }}</p>
                 <p class="categories">Categories:
@@ -39,11 +39,6 @@ Welcome to DevBooks
         </div>
         {% endfor %}
     </div>
-</section>
-
-<section class="categories-section">
-    <h2>Explore Categories</h2>
-    <p>Under construction</p>
 </section>
 
 <section class="search-books">
