@@ -1,4 +1,7 @@
 __pycache__/
+*.py[cod]
+*.pyo
+*.pyd
 *.pyc
 db.sqlite3
 env/
